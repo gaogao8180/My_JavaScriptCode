@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="请输入6位以上数字" id="txt" />
+<span id="msg"></span>
+<script>
+//文本框获取焦点，清空信息文本框失去焦点时，如果为空 ，提示不能为空，如果为非数字，提示不合法，
+//如果长度小于6，提示“长度不够”,如果为数字，提示正确
+    var txt = document.getElementById("txt");
+    var msg = document.getElementById("msg");
+    txt.onfocus = function () {
+        // console.log("获得焦点");
+        if(this.value === '请输入6位以上数字'){
+            this.value = "";
+        }
+
+    }
+    txt.onblur = function () {
+        // console.log("失去焦点");
+        if (this.value === ''){
+            msg.innerHTML = "不能为空";
+            msg.style.color = "red";
+        }else if(isNaN(this.value)) {
+            msg.innerHTML = "输入不合法";
+            msg.style.color = "red";
+        }else if(this.value.length<6){
+            msg.innerHTML = "长度不够";
+            msg.style.color = "red";
+        }else{
+            msg.innerHTML = "正确";
+            msg.style.color = "red";
+        }
+    }
+
+</script>
+</body>
+</html>

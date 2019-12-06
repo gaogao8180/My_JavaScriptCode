@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>aaaaa</li>
+    <li>bbbbb</li>
+    <li>cccccc</li>
+    <li>dddddd</li>
+    <li>eeeee</li>
+</ul>
+<script>
+    //隔行变色
+    var lis = document.getElementsByTagName("li");
+    var color = "";
+    //循环设置每个li颜色
+    for (var i=0;i<lis.length;i++){
+        if(i%2===0){
+            lis[i].style.backgroundColor = "red";
+        }else {
+            lis[i].style.backgroundColor = "blue";
+        }
+        //给每个li事件注册
+        lis[i].onmouseover = function () {
+            color = this.style.backgroundColor;
+            //让每个li背景颜色变绿
+            this.style.backgroundColor = "green";
+        }
+        lis[i].onmouseout = function () {
+            //鼠标离开，让当前背景色还原
+            this.style.backgroundColor = color;
+        }
+
+
+    }
+</script>
+
+</body>
+</html>

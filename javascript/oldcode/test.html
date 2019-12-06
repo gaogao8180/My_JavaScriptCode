@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //嵌套函数
+    // var outter = 10;
+    // function add(num1,num2) {
+    //     function innerfn() {
+    //         alert("函数相加为："+(num1+num2+outter));
+    //     }
+    //     return innerfn();
+    // }
+    // add(10,20)
+//--------------------------------------------------------------------
+    //arguments参数
+    function abs() {
+        if (arguments.length === 0){
+            return 0;
+        }
+        var a = arguments[0];
+        return a >= 0?a:-a;
+    }
+
+    console.log(abs());
+    console.log(abs(10));
+    console.log(abs(-9));
+    //--------------------------------------------------------------------
+    //rest参数
+    function foo(a,b,...rest) {
+        console.log(a);
+        console.log(b);
+        console.log(rest);
+    }
+    foo(1,2,3,4,5)
+</script>
+</body>
+</html>

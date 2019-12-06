@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border-width: 8px;
+            border-color: red;
+            border-style: solid;
+        }
+        input{
+            border: 0;
+        }
+        .uname{
+            border-width: 1px;
+            border-style: solid;
+            border-color: green;
+        }
+        .nc{
+            border-top-width: 1px;
+            border-top-style: solid;
+            border-top-color: pink;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: pink;
+        }
+        .email{
+            border-left: 1px solid red;
+            border-right: 1px solid #ccc;
+        }
+        .tel{
+            border: 2px solid chartreuse;
+        }
+    </style>
+</head>
+<body>
+    <div>我是一个盒子</div>
+    <label for="">用户名<input type="text" class="uname"></label><br>
+    <label for="">昵称<input type="text" class="nc"></label><br>
+    <label for="">邮箱<input type="email" class="email"></label><br>
+    <label for="">手机<input type="tel" class="tel"></label>
+</body>
+</html>

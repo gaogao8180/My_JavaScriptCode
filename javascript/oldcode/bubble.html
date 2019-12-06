@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>北京</li>
+    <li>上海</li>
+    <li>广州</li>
+    <li>深圳</li>
+    <li>杭州</li>
+</ul>
+<script>
+    var bu = document.getElementsByTagName("ul")[0];
+    var temp = document.querySelector("li").style.background;
+    bu.onclick = function (e) {
+        var e = e ||event;
+        e.preventDefault();//取消默认行为
+        e.target.style.background = "green";
+    }
+    bu.onmouseout = function (e) {
+        e.target.style.background = temp;
+    }
+
+</script>
+</body>
+</html>

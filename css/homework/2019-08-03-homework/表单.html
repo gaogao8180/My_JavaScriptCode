@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 550px;
+            height: 570px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-family: verdana,sans-serif;
+        }
+        a{
+            text-decoration:none
+        }
+        .redxing{
+            color: red;
+        }
+        .phoneNum{
+            height: 60px;
+            margin-top: 20px;
+            margin-left: 15px;
+        }
+        .phoneNum1{
+            height: 80px;
+        }
+        .phoneNum2{
+            margin-top: 50px;
+        }
+        .phoneNum3{
+            height: 20px;
+        }
+        .title{
+            width: 100px;
+            height: 30px;
+            /*display: inline-block;*/
+            float: left;
+            padding-top: 3px;
+            text-align: right;
+        }
+        .inp{
+            float: left;
+            margin-left: 30px;
+        }
+        .inp1{
+            float: left;
+            margin-left: 30px;
+            position: relative;
+        }
+        div.agree{
+            font-size: 14px;
+            margin-left: 135px;
+        }
+        .inpt{
+            height: 25px;
+            border: 1px solid #cccccc;
+            border-radius: 3px;
+        }
+        .inpt1{
+            width: 260px;
+        }
+        .inpt2{
+            float: left;
+            width: 210px;
+            margin-top: 5px;
+        }
+        .inpt3{
+            width: 340px;
+        }
+        p{
+            margin-top: 5px;
+            font-size: 13px;
+            color: #cccccc;
+        }
+        .p{
+            height: 16px;
+            font-size: 13px;
+            position: absolute;
+            margin-top: 55px;
+            color: #cccccc;
+        }
+        button{
+            width: 140px;
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            margin-left: 145px;
+            display: block;
+        }
+        .inpt4{
+            height: 22px;
+            float: left;
+            margin-right: 10px;
+        }
+        .zc1{
+            width: 120px;
+            height: 40px;
+            background: #51ad3b;
+            color: white;
+            margin-top: 15px;
+            border-radius: 3px;
+        }
+        .flag{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            float: left;
+        }
+        .flag em{
+            width: 17px;
+            height: 25px;
+            position: absolute;
+            margin-top: -25px;
+            margin-left: 5px;
+            background: url("imgs/phone.JPG") no-repeat;
+        }
+        .yzcode{
+            float: left;
+            margin-left: 15px;
+        }
+        .tips{
+            line-height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="phoneNum">
+            <div class="title">
+                <span class="redxing">*</span>
+                手机号码
+            </div>
+            <div class="inp">
+                <input  class="inpt inpt1" type="text">@163.com
+                <div class="flag">
+                    <em>&nbsp;</em>
+                </div>
+                <p>请填写手机号码</p>
+            </div>
+        </div>
+        <div class="phoneNum phoneNum1">
+            <div class="title">
+                <span class="redxing">*</span>
+                图片验证码
+            </div>
+            <div class="inp1">
+                <input  class="inpt inpt2" type="text">
+                <img class="yzcode" src="imgs/yzcode.JPG" alt="验证码">
+                <div class="p"><span class="tips">请填写图片中的字符，不区分大小写</span></div>
+            </div>
+        </div>
+        <button>免费获取验证码</button>
+        <div class="phoneNum phoneNum2">
+            <div class="title">
+                <span class="redxing">*</span>
+                短信验证码
+            </div>
+            <div class="inp">
+                <input  class="inpt inpt3" type="text">
+                <p>请查收手机短信，并填写手机中的验证码</p>
+            </div>
+        </div>
+        <div class="phoneNum ">
+            <div class="title">
+                <span class="redxing">*</span>
+                密码
+            </div>
+            <div class="inp">
+                <input  class="inpt inpt3" type="text">
+                <p>6-16个字符，区分大小写</p>
+            </div>
+        </div>
+        <div class="phoneNum">
+            <div class="title">
+                <span class="redxing">*</span>
+                确认密码
+            </div>
+            <div class="inp">
+                <input  class="inpt inpt3" type="text">
+                <p>请再次填写密码</p>
+            </div>
+        </div>
+        <div class="phoneNum phoneNum3">
+            <div class="agree">
+                <input class="inpt inpt4" type="checkbox">
+                同意"<a href="#">服务条款</a>"和"<a href="#">用户须知</a>"、"<a href="#">隐私权相关政策</a>"
+            </div>
+        </div>
+        <div class="zc">
+            <button class="zc1">立即注册</button>
+        </div>
+    </div>
+
+
+
+
+
+<script>
+</script>
+</body>
+</html>

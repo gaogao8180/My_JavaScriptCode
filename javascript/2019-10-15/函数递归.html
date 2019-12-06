@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//求n的阶乘
+
+
+    /*function fn(n) {
+        var res = 1;
+        for(var i=1;i<=n;i++){
+            res = res * i;
+        }
+        return res;
+    }*/
+
+    function fac(n){
+        if(n ===1){
+            return 1;
+        }else {
+            return n * fac(n-1);
+        }
+    }
+console.log(fac(5));
+</script>
+</body>
+</html>

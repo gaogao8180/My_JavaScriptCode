@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<li id="li">改变背景颜色</li>
+<script>
+//鼠标放入li 当前li背景色变红 离开去除颜色
+    let getid = document.getElementById("li");
+    getid.onmouseover = function(){
+        getid.style.backgroundColor = "red";
+    };
+    getid.onmouseout = function(){
+      getid.style.backgroundColor = "white";
+    };
+</script>
+</body>
+</html>

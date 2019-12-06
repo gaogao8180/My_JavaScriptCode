@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            margin: 5px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    function buildDate({year, month, day, hour=0, minute=0, second=0}){
+        return new Date(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+    }
+    console.log(buildDate({ year: 2017, month: 1, day: 1 }));
+
+    var obj = {
+        birth: 1990,
+        getAge: function () {
+            var b = this.birth; // 1990
+            var that = this;
+            var fn = function () {
+            return new Date().getFullYear() - that.birth; // this指向window或undefined
+            };
+            return fn();
+        }
+    };
+    console.log(obj.getAge());
+
+    var obj = {
+        birth:1991,
+        getAge:function () {
+            var b = this.birth;
+            var fn = () =>new Date().getFullYear() - this.birth;
+            return fn();
+        }
+    };
+    console.log(obj.getAge());
+
+    function calc(num1=1,num2=2) {
+        // num1 = num1 || 1;
+        // num2 = num2 || 3;
+        return num1 + num2;
+    }
+    console.log(calc(5,5));
+</script>
+</body>
+</html>

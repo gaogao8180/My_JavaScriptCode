@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //计算某一日时这年的第几天  2019-12-04
+    var year = parseInt(prompt("请输入年")),
+        month = parseInt(prompt("请输入月")),
+        day = parseInt(prompt("请输入日"));
+    var sum = 0;
+    switch (month) {
+        case 12:
+            sum += 30;
+        case 11:
+            sum += 31;
+        case 10:
+            sum += 30;
+        case 9:
+            sum += 31;
+        case 8:
+            sum += 31;
+        case 7:
+            sum += 30;
+        case 6:
+            sum += 31;
+        case 5:
+            sum += 30;
+        case 4:
+            sum += 31;
+        case 3:
+            ((year%400===0)||(year%4===0 && year%100 !== 0))?sum += 29:sum +=28;
+        case 2:
+            sum += 31;
+        case 1:
+            sum += day;
+    }
+    alert("这一天时这年的第"+sum+"天")
+</script>
+</body>
+</html>

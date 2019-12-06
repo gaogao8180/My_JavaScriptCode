@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="请输入内容" id="txt">
+<script>
+    var txt = document.getElementById("txt");
+    txt.onfocus = function () {
+        //console.log('获得焦点');
+        if (this.value ==="请输入内容"){
+             this.value = "";
+        }
+    }
+    txt.onblur = function () {
+        //console.log("失去焦点");
+        if(this.value === ""){
+            this.value = "请输入内容";
+        }
+    }
+</script>
+</body>
+</html>

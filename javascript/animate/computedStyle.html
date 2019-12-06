@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 120px;
+            height: 120px;
+            padding: 5px;
+            border: 2px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1" id="box1"></div>
+<script>
+    var box1 = document.querySelector("#box1");
+    var attr = 'height';
+    console.log(getComputedStyle(box1).width);
+    console.log(getComputedStyle(box1)['width']);
+
+
+    function getStyle(obj,attr) {
+        if(window.getComputedStyle){
+            return getComputedStyle(obj,false)[attr];
+        }else {
+            return obj.currentStyle[atrr];
+        }
+    }
+    alert(getStyle(box1,"border"));
+</script>
+</body>
+</html>

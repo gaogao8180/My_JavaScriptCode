@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+/*
+根据 BMI （身体质量指数）显示一个人的体型。 ( 多条件 )
+		BMI 指数，就是体重、身高的一个计算公式。公式是：
+		BMI = 体重kg÷身高的平方  身高单位: m米   如：  1.9
+		条件：
+		过轻：低于 19
+		正常： 19-25
+		过重： 25-28
+		肥胖： 28-32
+		非常肥胖 , 高于32
+			要求：
+		用 JavaScript开发一个程序，让用户先输入自己的体重，然后输入自己的身高（弹出两次 prompt 框）。计算它的 BMI，根据
+		上表，弹出用户的身体情况。比如“过轻” 、 “正常” 、“过重” 、 “肥胖” 、“非常肥胖”。
+ */
+var weight = parseInt(prompt("请输入自己的体重(kg):"));
+console.log(weight);
+var height = parseFloat(prompt("请输入自己的身高(m):"));
+console.log(height);
+var sum = parseInt(weight/(height*height));
+console.log(sum);
+if (sum<19) {
+    alert("过轻");
+}else if(sum>=19 && sum <25){
+    alert("正常");
+}else if(sum>=25 && sum <28) {
+    alert("过重");
+}else if(sum>=28 && sum <32) {
+    alert("肥胖");
+}else if(sum>=32) {
+    alert("非常肥胖");
+}
+
+</script>
+</body>
+</html>

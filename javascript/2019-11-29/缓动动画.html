@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background-color: pink;
+            left: 0;
+            top:0;
+        }
+        p.box{
+            top: 120px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">div</div>
+<p class="box">P</p>
+<button class="btn">让P飞起来</button>
+<button class="btn2">让P运动到100</button>
+<script>
+//缓动  速度越来越慢  移动的距离越来越小
+    //（目标值-当前位置）/10
+var box = document.querySelector(".box");
+var op = document.querySelector("p");
+var btn = document.querySelector("button");
+var btn2 = document.querySelector(".btn2");
+animate(box,500,30);
+btn.addEventListener('click',function () {
+    animate(op,500,50,function () {
+        console.log("animate over!");
+    });
+});
+btn2.addEventListener('click',function () {
+    animate(op,200,50);
+});
+
+//封装物体运动的函数
+function animate(obj,target,sec,callback) {
+    clearInterval(obj.timer);//确保函数只有一个定时器
+    obj.timer = setInterval(function () {
+        var step = (target-obj.offsetLeft)/10;
+        step = step>0?Math.ceil(step):Math.floor(step);
+        if(obj.offsetLeft === target){
+            clearInterval(obj.timer);
+            if(callback){
+                callback();
+                return;
+            }
+        }
+        obj.style.left = obj.offsetLeft + step + 'px';
+    },sec);
+}
+</script>
+</body>
+</html>

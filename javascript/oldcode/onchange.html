@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <select>
+        <option value="">--请选择--</option>
+        <option value="red">红色</option>
+        <option value="blue">蓝色</option>
+        <option value="green">绿色</option>
+    </select>
+
+    <script>
+        //事件源---下拉列表
+        //事件----onchange改变下拉列表选项
+        var sel = document.getElementsByTagName("select")[0];
+        //注册事件
+        sel.onchange = function () {
+            document.body.style.backgroundColor = sel.value;
+        }
+    </script>
+</body>
+</html>

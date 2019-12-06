@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //创建元素
+    var oDiv = document.createElement("div");
+    oDiv.innerHTML = "我是动态创建div";
+    oDiv.className = "box";
+    //将元素添加到body
+    //document.body.appendChild(oDiv);在末尾;
+    document.body.insertBefore(oDiv,document.body.children[0]);
+</script>
+</body>
+</html>

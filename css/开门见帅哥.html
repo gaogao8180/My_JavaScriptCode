@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        section{
+            width: 450px;
+            height: 300px;
+            background:url("../img/003.jpg") no-repeat;
+            margin: 100px auto;
+            position: relative;
+            perspective: 1000px;
+        }
+        section div{
+            position: absolute;
+            top: 0;
+            width:50%;
+            height: 100%;
+            background:url("../img/bg.png");
+            transtion: all 2s ;
+        }
+        .door-l {
+            left: 0;
+            transform-origin: left;
+        }
+        .door-r{
+            right: 0;
+            transform-origin: right;
+        }
+        .door-l::before,
+        .door-r::before{
+            content: "";
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .door-l::before{
+            right: 6px;
+        }
+        .door-r::before{
+            left: 6px;
+        }
+        section:hover .door-l{
+            transform: rotateY(-130deg);
+        }
+        section:hover .door-r{
+            transform: rotateY(130deg);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="door-l"></div>
+        <div class="door-r"></div>
+    </section>
+</body>
+</html>

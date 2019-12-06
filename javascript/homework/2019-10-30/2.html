@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<li>aaaaa</li>
+<li>bbbbb</li>
+<li>ccccc</li>
+<li>ddddd</li>
+<li>eeeee</li>
+
+
+<script>
+//在隔行变色基础上 鼠标移入当前元素变蓝色 离开恢复之前的颜色
+var lis = document.getElementsByTagName("li");
+var color = '';
+for (var i=0;i<lis.length;i++){
+    if(i%2 === 0){
+        lis[i].style.backgroundColor = "red";
+    }else {
+        lis[i].style.backgroundColor = "green";
+    }
+    lis[i].onmouseover = function () {
+        color = this.style.backgroundColor;
+        this.style.backgroundColor = "blue";
+    }
+    lis[i].onmouseout = function () {
+        this.style.backgroundColor = color;
+    }
+}
+
+
+
+</script>
+</body>
+</html>

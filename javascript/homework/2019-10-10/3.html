@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//输出m-n之间所有偶数和 奇数和 以及奇数个数 偶数个数m和n用户自己输入 要求m<n
+var m = parseInt(prompt("输入m数："));
+var n = parseInt(prompt("输入n数："));
+
+while (true){
+    if (m<n){
+        break;
+    }
+    var m = parseInt(prompt("输入m数："));
+    var n = parseInt(prompt("输入n数："));
+}
+var osum = 0;
+var jsum = 0;
+var ocount = 0;
+var jcount = 0;
+for(var i=m;i<=n;i++){
+    if (i%2===0){
+        osum += i;
+        ocount++;
+    }else if (i%2===1){
+        jsum += i;
+        jcount++;
+    }
+}
+console.log(osum,jsum,ocount,jcount);
+
+
+
+</script>
+</body>
+</html>

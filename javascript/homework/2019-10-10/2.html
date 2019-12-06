@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//任意输入一个正整数 判断这个整数是几位数
+
+    var int = parseInt(prompt("请输入一个正整数："));
+    var i =1;
+    while (true){
+
+        if (parseInt(int / 10) !== 0){
+            i++;
+            int = parseInt(int / 10);
+        }else {
+            break;
+        }
+
+    }
+ console.log("输入的数字是" + i + "位!");
+</script>
+</body>
+</html>

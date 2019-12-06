@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //计算任意一个三位数的和(三位数由用户输入)
+    var i = parseInt(prompt("请输入一个三位数："));
+    while (true){
+        if(i>=100 && i<=999){
+            break;
+        }
+        var i = parseInt(prompt("请输入一个三位数："));
+    }
+    var x = parseInt(i / 100);//取百位上的数字
+    console.log(x);
+    var y = parseInt(i / 10 % 10);//取十位上的数字
+    console.log(y);
+    var z = i % 100 % 10;//取个位上的数字
+    console.log(z);
+    var sum = x + y + z ;
+    document.write(i + " 三位数的和是：" + sum);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //输入任意三个数，输出最大值？
+    var a = parseFloat(prompt("请输入第一个数字："));
+    var b = parseFloat(prompt("请输入第二个数字："));
+    var c = parseFloat(prompt("请输入第三个数字："));
+    if(a>b){
+        var max = a;
+        if (max > c){
+            var max = max;
+        }else {
+            var max = c;
+        }
+    }else {
+        var max = b;
+        if(max > c){
+            var max = max;
+        }else {
+            var max = c;
+        }
+    }
+    alert("最大数是" + max)
+</script>
+</body>
+</html>

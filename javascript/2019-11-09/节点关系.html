@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <p>
+        <a href="#" id="remove">删除元素</a>
+    </p>
+</div>
+<script>
+    var removeLink = document.getElementById('remove');
+    var box1 = document.getElementById('box');
+    console.log(removeLink.parentNode.parentNode);
+    console.log(removeLink.parentNode.parentNode.nodeName);
+    console.log(box1.children);
+</script>
+</body>
+</html>

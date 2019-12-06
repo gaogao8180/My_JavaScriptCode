@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>不要复制</div>
+<script>
+    //阻止页面鼠标有右键菜单
+    // document.addEventListener('contextmenu',function (e) {
+    //     e.preventDefault();
+    // })
+
+    //阻止页面选中复制
+    // document.addEventListener('selectstart',function (e) {
+    //     e.preventDefault();
+    // })
+
+    var odiv = document.querySelector('div');
+    odiv.onclick = function (e) {
+        //返回鼠标相对于浏览器可视窗口区域坐标
+        console.log(e.clientX,e.clientY);
+        //返回鼠标相对于电脑屏幕窗口区域坐标
+        console.log(e.screenX,e.screenY);
+        //ie9+   相当于文档页面坐标
+        console.log(e.pageX,e.pageY);
+    }
+</script>
+</body>
+</html>

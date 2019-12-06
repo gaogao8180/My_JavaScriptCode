@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>轮播图</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .banner {
+            position: relative;
+            width: 810px;
+            height: 320px;
+            margin: 50px auto;
+            background: grey;
+            overflow: hidden;
+        }
+
+        .img-list {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5240px;
+            height: 320px;
+        }
+
+        .img-list li {
+            float: left;
+        }
+
+        .banner-nav-list {
+            list-style: none;
+            position: absolute;
+            right: 100px;
+            bottom: 50px;
+
+        }
+
+        .banner-nav-list li {
+            background: red;
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .banner-nav-list li.active {
+            background: yellow;
+        }
+
+        .banner .toLeft {
+            width: 60px;
+            height: 60px;
+            background: url(images/btn.gif);
+            position: absolute;
+            left: 30px;
+            top: 120px;
+            /*opacity: 0;*/
+        }
+
+        .banner .toRight {
+            width: 60px;
+            height: 60px;
+            background: url(images/btn.gif) 0px 60px;
+            position: absolute;
+            right: 30px;
+            top: 120px;
+            /*opacity: 0;*/
+        }
+
+        #arr {
+            opacity: 0;
+        }
+    </style>
+
+    <script src="sport5.js"></script>
+</head>
+
+<body>
+<div class="banner" id="banner">
+    <ul class="img-list" id="img-list">
+        <li><img src="images/001.jpg"></li>
+        <li><img src="images/002.jpg"></li>
+        <li><img src="images/003.jpg"></li>
+        <li><img src="images/004.jpg"></li>
+        <li><img src="images/001.jpg"></li>
+    </ul>
+
+    <ul class="banner-nav-list" id="banner-nav-list">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="arr">
+        <div class="toLeft" id="toLeft"></div>
+        <div class="toRight" id="toRight"></div>
+    </div>
+</div>
+</body>
+</html>
+<script src="./tool.js"></script>']\
+<script src="../../animate/sport4.js"></script>
+<script type="text/javascript">
+    /*
+      1 、 定时器自动实现无缝轮播
+      2、 鼠标移入移出大容器 ，定时器停止和启动定时器 ，完成 箭头的显示和隐藏
+      3、鼠标操作数字  找到对应的图片
+      4、点击左右按钮  完成图片移动 和  数字背景的改变
+    */
+    var index = 0;// 记住当前图片索引
+    var imgList = $("img-list");
+    var oList = $("banner-nav-list").children;
+    var banner = $("banner");
+    var arrow = $("arr");
+    var toLeft = $("toLeft");
+    var toRight = $("toRight");
+    var timer;
+
+    function autoPlay() {
+        index++;
+        // 运动到最后一张 是不是需要从第一张开始运动
+        if (index == 5) {
+            index = 1;
+            imgList.style.left = 0; // 迅速回到第一张
+        }
+        // 控制对应的控制按钮
+        for (var i = 0; i < oList.length; i++) {
+            oList[i].className = "";
+        }
+        if (index % 4 === 0) {
+            oList[0].className = "active";
+        } else {
+            oList[index].className = "active";
+        }
+        move(imgList, {
+            "left": -810 * index
+        });
+    }
+
+    timer = setInterval(autoPlay, 2000);
+    banner.onmouseover = function () {
+        clearInterval(timer);
+        // 显示左右按钮
+        //arrow.styles.opacity = 1;
+        move(arrow, {
+            "opacity": 100
+        });
+    }
+
+    banner.onmouseout = function () {
+        timer = setInterval(autoPlay, 2000);
+        //arrow.styles.opacity = 0;
+        move(arrow, {
+            "opacity": 0
+        });
+    }
+
+    toLeft.onclick = function () {
+        index--;
+        if (index == -1) {
+            index = 0;
+        }
+        move(imgList, {
+            "left": -810 * index
+        });
+        // 控制对应的控制按钮
+        for (var i = 0; i < oList.length; i++) {
+            oList[i].className = "";
+        }
+        oList[index].className = "active";
+    }
+
+    toRight.onclick = function () {
+        index++;
+        /*	// 图片运动到第五张时候 此时index=4 这时候我们点击右按钮时候 index=5*/
+        if (index == 5) {
+            index = 0;
+            imgList.style.left = 0;
+            index++;
+        }
+        if (index == 4) {
+            index = 3; // 让图片停在第四张
+        }
+        move(imgList, {
+            "left": -810 * index
+        });
+        // 控制对应的控制按钮
+        for (var i = 0; i < oList.length; i++) {
+            oList[i].className = "";
+        }
+        oList[index].className = "active";
+    }
+
+    // 循环绑定鼠标移入事件
+    /*
+        放入下面第一个li 显示第一张
+    */
+    for (var i = 0; i < oList.length; i++) {
+        oList[i].index = i;
+        oList[i].onmouseover = function () {
+            var idx = this.index;
+            index = idx - 1;
+            autoPlay();
+        }
+    }
+
+
+</script>

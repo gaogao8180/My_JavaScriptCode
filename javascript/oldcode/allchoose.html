@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="checkbox" name="all" />全选
+    <input type="checkbox" name="fx" />反选
+    <input type="checkbox" name="h" />
+    <input type="checkbox" name="h" />
+    <input type="checkbox" name="h" />
+    <input type="checkbox" name="h" />
+    <input type="checkbox" name="h" />
+    <input type="checkbox" name="h" />
+    <script>
+         //全选功能
+        var all = document.getElementsByName("all")[0];
+        var hs = document.getElementsByName("h");
+        var fx = document.getElementsByName("fx")[0];
+        all.onclick = function () {
+            var flag = this.checked;
+            for (var i=0;i<hs.length;i++){
+                hs[i].checked = flag;
+            }
+        }
+
+        //反选
+        fx.onclick = function () {
+            for(var i=0;i<hs.length;i++){
+                if(hs[i].checked){
+                    hs[i].checked = false;
+                }else {
+                    hs[i].checked = true;
+                }
+            }
+        }
+        var count = 0;
+        for (var i=0;i<hs.length;i++){
+            hs[i].onclick = function () {
+                count = 0;
+                for(var j=0;j<hs.length;j++){
+                    if(hs[j].checked){
+                        count++;
+                    }
+                }
+                if(count===hs.length){
+                    all.checked = true;
+                }else {
+                    all.checked = false;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

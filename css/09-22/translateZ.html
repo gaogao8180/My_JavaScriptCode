@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap{
+            float: left;
+            width: 200px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px 0 0 100px;
+            perspective: 500px;
+        }
+        .wrap img{
+            transition: 0.5s;
+        }
+        .wrap:nth-child(1):hover img{
+            transform:translateZ(100px);
+        }
+        .wrap:nth-child(2):hover img{
+            transform:translateZ(-100px);
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="../../img/001.jpg">
+
+</div>
+<div class="wrap">
+    <img src="../../img/001.jpg">
+</div>
+</body>
+</html>

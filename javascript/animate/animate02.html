@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+            left: 1000px;
+        }
+        .box2{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">运动到400</button>
+    <button id="btn2">运动到800</button>
+    <div class="box"></div>
+    <div class="box box2" id="box2"></div>
+<script>
+    var btn = document.querySelector("#btn");
+    var box = document.querySelector(".box");
+    var btn2 = document.querySelector("#btn2");
+    var box2 = document.querySelector("#box2");
+    btn.onclick = function () {
+        //让box运动到400px
+        animate(box,400);
+        animate(box2,400);
+    }
+    btn2.onclick = function () {
+        //让box运动到800px
+        animate(box,800);
+    }
+    var timeId = null;
+    function animate(ele,target) {
+        if(ele.timeId){
+            clearInterval(ele.timeId);
+            ele.timeId = null;
+        }
+        var step = 9;
+        ele.timeId = setInterval(()=>{
+            /*if(ele.offsetLeft >= target){
+                ele.styles.left = target + "px";
+                return clearInterval(ele.timeId);
+            }*/
+            if(ele.offsetLeft > target){
+                step = -Math.abs(step);
+            }
+            if (Math.abs(ele.offsetLeft - target) < Math.abs(step)){
+                ele.style.left = target + "px";
+                return clearInterval(ele.timeId);
+            }
+            ele.style.left = ele.offsetLeft + step + "px";
+        },30);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var uname = "gaogao",age = 35;
+    var str = `${uname}今年${age}岁.`
+    console.log(str)
+
+
+    function rand(min,max) {
+        return Math.round(Math.random()*(max-min)+min);
+    }
+    for (var i=0;i<10;i++){
+        console.log(rand(1,7))
+    }
+    console.log("--------------------------")
+    var d = new Date();
+    // console.log(d);
+    // console.dir(d);
+    // console.log(d.getDate());
+    // console.log(d.getMonth());
+    // console.log(d.getDay());
+    // console.log(d.toLocaleString());
+
+    function dateToString(d) {
+        var year = d.getFullYear();
+        var month = toTwo(d.getMonth()+1);
+        var day = toTwo(d.getDate());
+        var h = toTwo(d.getHours());
+        var m = toTwo(d.getMinutes());
+        var s = toTwo(d.getSeconds());
+        var arr = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+        var weekday = arr[d.getDay()];
+        var str = `${year}年${month}月${day}日  ${h}:${m}:${s} ${weekday}`;
+        return str
+    }
+
+    function toTwo(v) {
+        return v<10?'0'+v:v;
+    }
+    console.log(dateToString(d));
+</script>
+</body>
+</html>

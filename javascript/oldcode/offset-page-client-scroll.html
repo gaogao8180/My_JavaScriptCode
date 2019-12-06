@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{padding: 0;margin: 0}
+        .box1{width: 300px;height: 300px;margin: 100px;background-color: #333;overflow: hidden;}
+        .box2{width: 200px;height: 200px;margin: 100px;background-color: #666;overflow: hidden;}
+        .box3{width: 100px;height: 100px;margin: 100px;background-color: #999;}
+
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+</div>
+<script>
+    var box1 = document.querySelector(".box1");
+    var box2 = document.querySelector(".box2");
+    var box3 = document.querySelector(".box3");
+
+    console.log("box1:" + box1.offsetX +','+ box1.offsetY +','+ box1.offsetLeft +','+box1.offsetTop + ','+box1.offsetHeight+','+box1.offsetWidth );
+    console.log("box2:" + box2.offsetX +','+ box2.offsetY +','+ box2.offsetLeft +','+box2.offsetTop + ','+box2.offsetHeight+','+box2.offsetWidth );
+    console.log("box3:" + box3.offsetX +','+ box3.offsetY +','+ box3.offsetLeft +','+box3.offsetTop + ','+box3.offsetHeight+','+box3.offsetWidth );
+
+    console.log("box1:" + box1.pageX +','+ box1.pageY +','+ box1.pageXOffset +','+box1.pageYOffset);
+
+    console.log("box1:" + box1.clientX +','+ box1.clientY +','+ box1.clientLeft +','+box1.clientTop+ ','+box1.clientHeight+','+box1.clientWidth);
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+
+</head>
+<body>
+<script src="../../jstool/tools.js"></script>
+<script>
+
+    //每隔一段时间    创建一张图片  大小随机    位置随机
+    setInterval(createImg,1000);
+    function createImg() {
+        //创建元素
+        oImg = document.createElement('img');
+        oImg.src = 'star.gif';
+        //添加元素到body
+        document.body.appendChild(oImg);
+        //设置随机大小
+        var num = getrandom(10,30)
+        oImg.height = oImg.width = num;
+        //设置随机位置
+        oImg.style.position = "absolute";
+        var _left = getrandom(0,window.innerWidth-num);
+        var _top = getrandom(0,window.innerHeight-num);
+        oImg.style.left = _left + "px";
+        oImg.style.top = _top + "px";
+    }
+</script>
+</body>
+</html>

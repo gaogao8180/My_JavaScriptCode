@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+            margin: auto;
+            opacity: 0.3;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+<script>
+    var box = document.querySelector(".box");
+    //放入div ，透明度变为1
+    box.onmouseover = function () {
+        startMove(100);
+    }
+    box.onmouseout = function () {
+        startMove(30);
+    }
+
+    var num = 30;
+    var timeId = null;
+    function startMove(target) {
+        clearInterval(timeId);
+        timeId = setInterval(()=>{
+            var speed = target - num > 0?1:-1;
+            if(num === target){
+                clearInterval(timeId);
+            }else {
+                num += speed;
+                box.style.opacity = num/100;
+            }
+        },30);
+    }
+</script>
+</body>
+</html>

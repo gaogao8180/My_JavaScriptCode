@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">运动到400</button>
+    <div class="box"></div>
+<script>
+    var btn = document.querySelector("#btn");
+    var box = document.querySelector(".box");
+    btn.onclick = function () {
+        //让box运动到400px
+        animate(box,800);
+    }
+    var timeId = null;
+    function animate(ele,target) {
+        if(timeId){
+            clearInterval(timeId);
+            timeId = null;
+        }
+        var step = 9;
+        timeId = setInterval(()=>{
+            if(ele.offsetLeft >= target){
+                ele.style.left = target + "px";
+                return clearInterval(timeId);
+            }
+            ele.style.left = ele.offsetLeft + step + "px";
+        },30);
+    }
+
+</script>
+</body>
+</html>

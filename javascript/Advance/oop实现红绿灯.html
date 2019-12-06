@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 279px;
+            background:url("../../img/deng.jpg");
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    //默认情况下 一个div显示图片的一组红绿灯
+    //点击盒子 灯切换 原理是改变背景图定位从而显示不同组
+    //定义红绿灯构造函数
+    function HongLvDeng() {
+        //一开始认为挂载的dom元素未null
+        this.dom = null;
+        this.singal = 0;
+        //对属性初始化
+        this.init();
+        //监听事件
+        this.bindEvent();
+    }
+    //在原型上定义初始化
+    HongLvDeng.prototype.init = function () {
+        this.dom = document.createElement("div");
+        document.body.appendChild(this.dom);
+    }
+    HongLvDeng.prototype.bindEvent = function () {
+        //this 指new出来的红绿灯对象
+        let _this = this;//记录this
+        this.dom.onclick = function () {
+            //this 指的是dom元素
+            _this.singal++;
+            if(_this.singal > 2){
+                _this.singal = 0;
+            }
+            this.style.backgroundPosition = -_this.singal * 100 + "px 0px";
+        }
+    }
+    //创建红绿灯
+    // new HongLvDeng()
+    for (var i =0;i<20;i++){
+        new HongLvDeng();
+    }
+</script>
+
+</body>
+</html>

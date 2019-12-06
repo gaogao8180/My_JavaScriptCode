@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+    <li>55555</li>
+</ul>
+<script>
+    /*事件委托   核心给父亲绑定   只操作一次DOM  提高程序性能*/
+    var oul = document.querySelector('ul');
+    oul.onclick = function (e) {
+        var e = e || window.event;
+        console.log(e.target);
+        alert(e.target.innerHTML);
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

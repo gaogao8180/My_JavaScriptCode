@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+/*
+输入一个年龄   如果年龄大于20   可以来千锋学习前端了   否则     继续上大学
+  如果输入的不是正确的年龄 就提示  输入有误 请重新输入
+  如果输入的是数字  数字范围不在1--100   提示输入有误
+ */
+
+let age = parseInt(prompt("请输入年龄："));
+
+if (age >= 1 && age <=100 ){
+    if (age > 20){
+        alert("可以来千锋学习前端了");
+    }else {
+        alert("继续上大学");
+    }
+}else {
+    alert("输入有误 请重新输入");
+}
+</script>
+</body>
+</html>

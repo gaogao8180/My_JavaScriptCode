@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//统计100-200之间素数个数
+    var n = 0;
+    for (var i=100;i<=200;i++){
+        var flag = true;
+        for (var j=2;j<i;j++){
+            if (i%j === 0){
+                flag = false;
+                break;
+            }
+        }
+        if (flag === true && i !== 2) {
+            n++;
+        }
+    }
+console.log(n);
+/*var str="",n=0;
+for(var i=100; i<=200; i++){
+    var m=0; //质数
+    for(var j=2; j<i; j++){
+        if(i%j==0){
+            m=1; //非质数
+            break;
+        }
+    }
+    if(m==0 && i!=2){
+        str=str + i + "，";
+        n++; //质数个数+1
+    }
+}
+window.document.write("<p>100-200间的质数总数为：" + n + " 个</p>");
+window.document.write("<p>100-200间的质数分别为：" + str.substr(0,str.length-1) +"</p>");*/
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 79px;
+            height: 108px;
+            position: absolute;
+            top: 100px;
+            left: 0;
+            background: url(../../img/aisidier.png) 0 -216px;
+        }
+    </style>
+</head>
+<body>
+<script src="../../jstool/jstool.js"></script>
+<script>
+    //创建小女孩对象
+    function Girl() {
+        this.dom = null;
+        this.signal = 0;
+        this.x = 0;
+        this.speed = _.random(1,10);
+        this.y = _.random(0,500);
+        //初始化
+        this.init();
+        //把创建的女孩对象添加到数组
+        girls.push(this);
+    }
+    Girl.prototype.init = function () {
+        this.dom = document.createElement("div");
+        document.body.appendChild(this.dom);
+        this.dom.style.top = this.y +"px";
+    }
+    Girl.prototype.update = function () {
+        this.signal++;
+        this.x += this.speed;
+        if (this.signal > 7){
+            this.signal = 0;
+        }
+        this.dom.style.backgroundPosition = -this.signal*79 +"px -216px";
+        this.dom.style.left = this.x +"px";
+    }
+    var girls = [];
+    for (var i=0;i<10;i++){
+        new Girl();
+    }
+    setInterval(function () {
+        _.each(girls,function (g) {
+            g.update();
+        })
+    },100);
+</script>
+</body>
+</html>

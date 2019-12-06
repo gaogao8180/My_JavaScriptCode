@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tip{
+            width: 150px;
+            height: 30px;
+            line-height: 30px;
+            opacity: 0.5;
+            margin: 200px auto;
+            color: red;
+            text-align: center;
+            display: none;
+            background-color: lightgray;
+        }
+    </style>
+    <script>
+        onload = function () {
+            var btn_del = document.getElementById("btn_del");
+            btn_del.onclick = function () {
+                var tip = document.getElementById("tip");
+                tip.style.display = "block";
+                setTimeout(()=>{
+                    tip.style.display = "none";
+                },3000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn_del" value="删除">
+    <div id="tip">删除成功</div>
+
+</body>
+</html>

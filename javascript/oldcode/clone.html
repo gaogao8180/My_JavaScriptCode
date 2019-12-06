@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--    <div><img src="../img/003.jpg" alt=""></div>-->
+    <table border="1" cellspacing="0" id="tab">
+        <td><input type="checkbox" /></td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>年龄</td>
+    </table>
+    姓名:<input type="text" id="uname"/>
+    性别:<input type="radio" name="sex"  value="男" id="d"/>男
+         <input type="radio" name="sex"  value="女" />女
+    年龄:<input type="text" name="" id="age" />
+    <input type="button" value="保存" id="btn"/>
+    <script src="../../jstool/tools.js"></script>
+    <script>
+        // var oDiv = document.querySelector("div");
+        // var oDivClone = oDiv.cloneNode(true);
+        // document.body.appendChild(oDivClone);
+        // document.body.appendChild(oDiv);//剪切  粘贴
+        $("btn").onclick = function () {
+            var obj_tr = $("tab").children[0].children[0].cloneNode(true);
+            $("tab").appendChild(obj_tr);
+            obj_tr.children[1].innerHTML = $("uname").value;
+            //判断男按钮选中状态
+            if($("d").checked){
+                str = "男";
+            }else {
+                str = "女";
+            }
+            obj_tr.children[2].innerHTML = str;
+            obj_tr.children[3].innerHTML = $("age").value;
+
+        }
+    </script>
+</body>
+</html>

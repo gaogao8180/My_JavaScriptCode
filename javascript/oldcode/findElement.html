@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="foo"></p>
+    <div class="foo"></div>
+    <div name="foo"></div>
+    <ul>
+        <li class="foo">111</li>
+        <li>222</li>
+        <li class="foo">333</li>
+    </ul>
+    <script>
+        var odiv = document.getElementsByName("foo");
+        console.log(odiv instanceof Object);
+
+        //querySelector  querySelectorAll
+        var p1 = document.querySelector("#foo");
+        console.log(p1);
+
+        var eles2 = document.querySelectorAll(".foo");
+        console.log(eles2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+var end_time = new Date("2019/11/11");
+//获取当前时间
+var now_time = new Date();
+var diff = end_time.getTime() - now_time.getTime();//获取时间差
+var diff = parseInt(diff/1000);
+var days = parseInt(diff/(24*3600));
+var hours = parseInt(diff%(24*3600)/3600);
+var minutes = parseInt(diff%3600/60);
+var seconds = parseInt(diff%60);
+var str = `距离2019年双十一节还有${days}天${hours}时${seconds}秒!`;
+console.log(str);
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

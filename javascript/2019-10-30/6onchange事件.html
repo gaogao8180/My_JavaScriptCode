@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="
+    " id="txt" value="123"/>
+    <select name="" id="sel">
+        <option value="">请输入城市</option>
+        <option value="beijing">北京</option>
+        <option value="shanghai">上海</option>
+    </select>
+    <script>
+        var txt = document.getElementsByTagName('input')[0];
+        txt.oninput = function() {
+            console.log(111);
+        }
+
+        var sel = document.getElementById('sel');
+        //alert(sel.value);
+        // 列表项发生改变
+        sel.onchange = function() {
+            alert(this.value);
+        }
+
+        // 练习3 下拉列表 列出三个颜色 选中某种颜色 网页（document.body）就设置该颜色
+    </script>
+</body>
+</html>

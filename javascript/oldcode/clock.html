@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div.clock{
+            text-align: center;
+            font-size: 30px;
+        }
+        div.clock>span{
+            padding: 6px;
+            background-color: skyblue;
+        }
+        .title{
+            width: 430px;
+            height: 15px;
+            margin: 200px 50px;
+        }
+        .title-item strong{
+            background-color: orange;
+            color: #fff;
+            font-size: 36px;
+            padding: 0 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            font-family:Arial,Helvetica,sans-serif ;
+            margin-right: 10px;
+            line-height: 49px;
+        }
+        .title-item{
+            width: 430px;
+            height: 45px;
+            margin: 0 auto;
+
+        }
+        .title-item>span{
+            line-height: 49px;
+            font-size: 32px;
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <span id="h"></span>:
+        <span id="m"></span>:
+        <span id="s"></span>
+    </div>
+    <h1 class="title">距离双12还有：</h1>
+    <div class="title-item">
+        <span><span id="days"></span>天</span>
+        <strong><span id="hours"></span>时</strong>
+        <strong><span id="minutes"></span>分</strong>
+        <strong><span id="seconds"></span>秒</strong>
+    </div>
+    <script src="../../jstool/tools.js"></script>
+<script>
+    //16:20:03
+    //获取时间
+    function getCurrentTime() {
+        var date = new Date();
+        var hs = totwo(date.getHours());
+        var ms = totwo(date.getMinutes());
+        var ss = totwo(date.getSeconds());
+        //设置
+        $("h").innerHTML = hs;
+        $("m").innerHTML = ms;
+        $("s").innerHTML = ss;
+    }
+    function totwo(val) {
+        return val<10?"0"+val:val;
+    }
+    getCurrentTime();
+    setInterval(getCurrentTime,1000);
+
+    //倒计时 距离12月12日还有多少天多少时多少分多少秒
+    var endTime = new Date("2019-12-12 0:0:0");
+    // console.log(endTime.getMonth());
+    setInterval(getDjs,1000);
+    function getDjs(){
+        var now = new Date();
+        //计算两个日期差
+        var interval = getInterval(now,endTime);
+        $("days").innerHTML = totwo(interval.day);
+        $("hours").innerHTML = totwo(interval.hour);
+        $("minutes").innerHTML = totwo(interval.minute);
+        $("seconds").innerHTML = totwo(interval.second);
+    }
+    getDjs();
+</script>
+</body>
+</html>

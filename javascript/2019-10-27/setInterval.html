@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>距离2019年双十一节</h1>
+<h2><span id="d"></span>天<span id="h"></span>时<span id="m"></span>分<span id="s"></span>秒</h2>
+<script>
+    let d = document.getElementById("d");
+    let h = document.getElementById("h");
+    let m = document.getElementById("m");
+    let s = document.getElementById("s");
+    let end_time = new Date("2019/11/11");
+    setInterval(function () {
+        var now_time = new Date();
+        var diff = end_time.getTime() - now_time.getTime();//获取时间差
+        var diff = parseInt(diff/1000);
+        var days = parseInt(diff/(24*3600));
+        var hours = parseInt(diff%(24*3600)/3600);
+        var minutes = parseInt(diff%3600/60);
+        var seconds = parseInt(diff%60);
+        d.innerHTML = days;
+        h.innerHTML = hours;
+        m.innerHTML = minutes;
+        s.innerHTML = seconds;
+    },1000)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 100px;
+        }
+        span{
+            width: 1px;
+            height: 500px;
+            position: absolute;
+            left: 300px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">缓冲运动</button>
+    <div></div>
+    <span></span>
+<script>
+    var btn = document.getElementById("btn");
+    var oDiv = document.getElementsByTagName("div")[0];
+    btn.addEventListener("click",function () {
+        startMove(oDiv,300);
+    });
+    function startMove(obj,target) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(()=>{
+            var speed = (target - obj.offsetLeft) / 10;//缓冲运动原理
+            speed = speed>0?Math.ceil(speed):Math.floor(speed);//保证数据不丢失
+            if(obj.offsetLeft === target){
+                clearInterval(obj.timer);
+            }else {
+                obj.style.left = obj.offsetLeft + speed + "px";
+            }
+        },30);
+    }
+
+</script>
+</body>
+</html>

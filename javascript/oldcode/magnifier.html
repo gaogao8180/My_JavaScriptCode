@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 350px;
+			height: 350px;
+			border: 1px solid #000;
+			margin: 200px;
+			position: relative;
+		}
+		#big{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			overflow: hidden;
+			position: absolute;
+			top:0;
+			left : 360px;
+			display: none;
+		}
+		#mask{
+			width: 175px;
+			height: 175px;
+			background: paleturquoise;
+			position: absolute;
+			left:0;
+			top: 0;
+			opacity: 0.3;
+			display: none;
+			cursor: move;
+		}
+		#small{
+			position: relative;
+		}
+		#bigImg{
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+    <div id="box" >
+        <div id="small"><!--小图区-->
+            <img src="../../img/001.jpg" alt="" />
+            <div id="mask"></div><!--遮罩层-->
+        </div>
+        <div id="big"><!--大图区-->
+            <img src="../../img/0001.jpg" width="600" height="600" alt="" id="bigImg"/>
+        </div>
+    </div>
+<script src="../../jstool/tools.js"></script>
+<script>
+    var box = $("box");
+    var small = $("small");
+    var mask = $("mask");
+    var big = $("big");
+    var bigImg = $("bigImg");
+//鼠标放入small区域 遮罩层与big显示
+    small.onmouseover = function(){
+        mask.style.display = "block";
+        big.style.display = "block";
+    }
+//鼠标离开small区域 遮罩层与big隐藏
+    small.onmouseout = function() {
+        mask.style.display = "none";
+        big.style.display = "none";
+    }
+//鼠标在小图区移动
+    small.onmousemove = function (e) {
+        var e = e || event;
+        var x = e.pageX - mask.offsetWidth/2 - box.offsetLeft;
+        var y = e.pageY - mask.offsetHeight/2 - box.offsetTop;
+        //水平范围0-box.offsetWidth - mask.offsetWidth
+        //竖直范围0-box.offsetHeight - mask.offsetHeight
+        var maxL = box.offsetWidth - mask.offsetWidth;
+        var maxT = box.offsetHeight - mask.offsetHeight;
+        x = x<0?0:(x>maxL?maxL:x);
+        y = y<0?0:(y>maxT?maxT:y);
+        //设置遮罩层坐标
+        mask.style.left = x + "px";
+        mask.style.top = y + "px";
+
+        //对大图进行操作
+        var bigImgLeft = -x*big.offsetWidth/small.offsetWidth;
+        var bigImgTop = -x*big.offsetHeight/small.offsetHeight;
+        bigImg.style.left = bigImgLeft + "px";
+        bigImg.style.top = bigImgTop + "px";
+    }
+</script>
+</body>
+</html>
